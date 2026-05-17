@@ -10,15 +10,15 @@ from django.urls import reverse
 from datetime import date
 from .models import Abitudine, LogAbitudine
 
-ab = Abitudine.objects.first()
+# ab = Abitudine.objects.first()
 
-for i in range(10):
-    data = timezone.localdate() - timedelta(days=i)
-    LogAbitudine.objects.get_or_create(
-        abitudine=ab,
-        data=data,
-        defaults={'completata': i % 3 != 0}  
-    )
+# for i in range(10):
+#     data = timezone.localdate() - timedelta(days=i)
+#     LogAbitudine.objects.get_or_create(
+#         abitudine=ab,
+#         data=data,
+#         defaults={'completata': i % 3 != 0}  
+#     )
 
 @login_required
 def dashboard(request):
