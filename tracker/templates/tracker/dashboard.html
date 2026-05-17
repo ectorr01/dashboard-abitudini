@@ -89,7 +89,22 @@
             <canvas id="weeklyChart"></canvas>
         </div>
     </article>
-
+    <!-- Form aggiunta abitudine -->
+<section>
+    <h3>➕ Aggiungi abitudine</h3>
+    <form action="{% url 'aggiungi_abitudine' %}" method="post" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        {% csrf_token %}
+        <input
+            type="text"
+            name="nome"
+            maxlength="50"
+            placeholder="Es. Leggere, Bere acqua..."
+            required
+            style="flex:1; min-width:200px;"
+        >
+        <button type="submit">Aggiungi</button>
+    </form>
+</section>
     <!-- Lista abitudini del giorno selezionato -->
     <main>
         <h3>Abitudini del {{ data_selezionata|date:"d/m/Y" }}</h3>

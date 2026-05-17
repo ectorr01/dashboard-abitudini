@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.urls import reverse
 from datetime import date
 from .models import Abitudine, LogAbitudine
+from .forms import AbitudineForm
 
 # ab = Abitudine.objects.first()
 
@@ -115,3 +116,15 @@ def toggle_abitudine(request, abitudine_id):
     
     # Redirect pulito con reverse()
     return redirect(f"{reverse('dashboard')}?data={data_target.isoformat()}")
+
+
+def aggiungi_abitudine(request):
+    form = AbitudineForm(request.POST)
+    if form.is_valid():
+        abitudine = form.save(commit=False)
+        abitudine.proprietario = request.user
+        abitudine.save()
+        messages.success(request, f"✅ Abitudine '{abitudine.nome}' aggiunta!")
+    else:
+        messages.error(request, "❌ Nome non valido o già esistente.")
+    return redirect('dashboard')
