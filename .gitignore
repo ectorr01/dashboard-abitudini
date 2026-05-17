@@ -1,0 +1,28 @@
+# Ambiente virtuale
+venv/
+env/
+.venv/
+
+# File Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Database SQLite (opzionale)
+db.sqlite3
+
+# Media e Static files (se li hai generati)
+media/
+staticfiles/
+
+# Django
+*.log
+local_settings.py
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
