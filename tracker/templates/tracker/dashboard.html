@@ -102,7 +102,8 @@
             <!-- ⚠️ Il toggle agisce SEMPRE su oggi (logica standard) -->
             <form action="{% url 'toggle_abitudine' item.abitudine.id %}" method="post">
                 {% csrf_token %}
-                <input type="hidden" name="data" value="{{ data_selezionata.isoformat }}">
+                <!-- <input type="hidden" name="data" value="{{ data_selezionata.isoformat }}"> -->
+                <input type="hidden" name="data" value="{{ data_selezionata|date:'Y-m-d' }}">
                 <button type="submit" class="secondary">
                     {% if item.completata %}↩️ Segna come non fatta{% else %}✅ Segna come fatta{% endif %}
                 </button>
