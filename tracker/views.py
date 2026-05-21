@@ -128,3 +128,12 @@ def aggiungi_abitudine(request):
     else:
         messages.error(request, "❌ Nome non valido o già esistente.")
     return redirect('dashboard')
+
+@login_required
+@require_POST
+def elimina_abitudine(request, abitudine_id):
+    abitudine = get_object_or_404(Abitudine, id=abitudine_id, proprietario=request.user)
+    nome = abitudine.nome
+    abitudine.delete()
+    messages.success(request, f"🗑️ '{nome}' eliminata.")
+    return redirect('dashboard')

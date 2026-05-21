@@ -105,6 +105,7 @@
         <button type="submit">Aggiungi</button>
     </form>
 </section>
+
     <!-- Lista abitudini del giorno selezionato -->
     <main>
         <h3>Abitudini del {{ data_selezionata|date:"d/m/Y" }}</h3>
@@ -123,6 +124,14 @@
                     {% if item.completata %}↩️ Segna come non fatta{% else %}✅ Segna come fatta{% endif %}
                 </button>
             </form>
+            <!-- Form eliminazione (nuovo) -->
+    <form action="{% url 'elimina_abitudine' item.abitudine.id %}" method="post"
+          onsubmit="return confirm('Eliminare {{ item.abitudine.nome }}? Anche tutti i log storici verranno cancellati.')">
+        {% csrf_token %}
+        <button type="submit" class="secondary" style="color:#dc2626;">
+            🗑️ Elimina
+        </button>
+    </form>
         </div>
         {% empty %}
         <article>
