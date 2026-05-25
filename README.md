@@ -1,5 +1,7 @@
 # Dashboard Abitudini 📊
 
+> ⚠️ **Progetto in sviluppo** — Il progetto è funzionante nelle sue funzionalità principali, ma è ancora in fase di sviluppo attivo. Potrebbero essere presenti bug o comportamenti inattesi. Il codice viene aggiornato e migliorato progressivamente.
+
 App web per tracciare le proprie abitudini quotidiane (lettura, acqua, allenamento, ecc.), costruita con Django. Permette di registrare il completamento giornaliero, visualizzare i progressi in un grafico e monitorare le streak.
 
 ---
@@ -168,3 +170,9 @@ In produzione, `DEBUG` deve essere impostato a `False` e `ALLOWED_HOSTS` deve co
 ## Autore
 
 Progetto realizzato come esercizio per imparare Django e Git/GitHub.
+
+## Stato del progetto
+
+🚧 **Work in progress** — Il progetto è caricato su GitHub in uno stato funzionante, ma lo sviluppo è ancora in corso. Alcune funzionalità potrebbero essere incomplete o presentare bug. Il codice verrà revisionato, migliorato e corretto nel tempo.
+
+Se noti qualcosa che non funziona, sentiti libero di aprire una [Issue](https://github.com/ectorr01/dashboard-abitudini/issues) su GitHub.
