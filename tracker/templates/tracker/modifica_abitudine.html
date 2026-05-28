@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifica abitudine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body class="container" style="max-width: 480px; margin-top: 5rem;">
+    <article>
+        <h2>✏️ Modifica abitudine</h2>
+        <p>Nome attuale: <strong>{{ abitudine.nome }}</strong></p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div style="display:flex; gap:0.5rem;">
+                <button type="submit">Salva</button>
+                <a href="{% url 'dashboard' %}" role="button" class="secondary outline">Annulla</a>
+            </div>
+        </form>
+    </article>
+</body>
+</html>

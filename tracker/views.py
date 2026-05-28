@@ -10,16 +10,8 @@ from django.urls import reverse
 from datetime import date
 from .models import Abitudine, LogAbitudine
 from .forms import AbitudineForm
+from .forms import AbitudineForm, ModificaAbitudineForm
 
-# ab = Abitudine.objects.first()
-
-# for i in range(10):
-#     data = timezone.localdate() - timedelta(days=i)
-#     LogAbitudine.objects.get_or_create(
-#         abitudine=ab,
-#         data=data,
-#         defaults={'completata': i % 3 != 0}  
-#     )
 
 @login_required
 def dashboard(request):
@@ -137,3 +129,22 @@ def elimina_abitudine(request, abitudine_id):
     abitudine.delete()
     messages.success(request, f"🗑️ '{nome}' eliminata.")
     return redirect('dashboard')
+
+
+@login_required
+def modifica_abitudine(request, abitudine_id):
+    abitudine = get_object_or_404(Abitudine, id=abitudine_id, proprietario=request.user)
+
+    if request.method == 'POST':
+        form = ModificaAbitudineForm(request.POST, instance=abitudine)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"✏️ Abitudine rinominata in '{abitudine.nome}'.")
+            return redirect('dashboard')
+    else:
+        form = ModificaAbitudineForm(instance=abitudine)
+
+    return render(request, 'tracker/modifica_abitudine.html', {
+        'form': form,
+        'abitudine': abitudine,
+    })

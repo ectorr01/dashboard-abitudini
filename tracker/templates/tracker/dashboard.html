@@ -132,6 +132,9 @@
             🗑️ Elimina
         </button>
     </form>
+    <a href="{% url 'modifica_abitudine' item.abitudine.id %}" role="button" class="secondary outline">
+    ✏️ Rinomina
+    </a>
         </div>
         {% empty %}
         <article>

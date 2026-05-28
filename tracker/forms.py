@@ -12,3 +12,14 @@ class AbitudineForm(forms.ModelForm):
                 'autofocus': True,
             })
         }
+
+class ModificaAbitudineForm(forms.ModelForm):
+    class Meta:
+        model = Abitudine
+        fields = ['nome']
+        labels = {'nome': 'Nuovo nome'}
+        widgets = {
+            'nome': forms.TextInput(attrs={
+                'placeholder': 'Nuovo nome abitudine...',
+            })
+        }
