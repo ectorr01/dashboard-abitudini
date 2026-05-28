@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body class="container" style="max-width: 480px; margin-top: 5rem;">
+    <article>
+        <h2>📝 Crea account</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Registrati</button>
+        </form>
+        <footer>
+            <small>Hai già un account? <a href="{% url 'login' %}">Accedi</a></small>
+        </footer>
+    </article>
+</body>
+</html>
